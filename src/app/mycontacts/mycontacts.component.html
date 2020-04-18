@@ -1,0 +1,35 @@
+<h2>My contacts</h2>
+
+<clr-datagrid>
+    <clr-dg-column>User ID</clr-dg-column>
+    <clr-dg-column [clrDgField]="'surname'">Surname</clr-dg-column>
+    <clr-dg-column [clrDgField]="'name'">Name</clr-dg-column>
+    <clr-dg-column [clrDgField]="'patronymic'">Patronymic</clr-dg-column>
+    <clr-dg-column [clrDgField]="'organization'">Organization</clr-dg-column>
+    <clr-dg-column [clrDgField]="'position'">Position</clr-dg-column>
+    <clr-dg-column [clrDgField]="'email'">Email</clr-dg-column>
+    <clr-dg-column [clrDgField]="'phone'">Phone</clr-dg-column>
+
+    <clr-dg-row *clrDgItems="let contact of contacts">
+        <clr-dg-action-overflow>
+            <button class="action-item" routerLink="/detail/{{contact.id}}">Edit</button>
+            <button class="action-item" (click)="onDelete(contact)">Delete</button>
+        </clr-dg-action-overflow>
+        <clr-dg-cell>{{contact.id}}</clr-dg-cell>
+        <clr-dg-cell>{{contact.surname}}</clr-dg-cell>
+        <clr-dg-cell>{{contact.name}}</clr-dg-cell>
+        <clr-dg-cell>{{contact.patronymic}}</clr-dg-cell>
+        <clr-dg-cell>{{contact.organization}}</clr-dg-cell>
+        <clr-dg-cell>{{contact.position}}</clr-dg-cell>
+        <clr-dg-cell>{{contact.email}}</clr-dg-cell>
+        <clr-dg-cell>{{contact.phone}}</clr-dg-cell>
+    </clr-dg-row>
+
+    <clr-dg-footer>
+        <clr-dg-pagination #pagination #pagination [clrDgPageSize]="10">
+            <clr-dg-page-size [clrPageSizeOptions]="[3,5,10]">Users per page</clr-dg-page-size>
+            {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+            of {{pagination.totalItems}} contacts
+        </clr-dg-pagination>
+    </clr-dg-footer>
+</clr-datagrid>

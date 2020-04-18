@@ -1,0 +1,17 @@
+<h1>Register</h1>
+
+<form clrForm [formGroup]="form" (ngSubmit)="submit()">
+  <clr-input-container>
+    <label>Username</label>
+    <input clrInput formControlName="username" required/>
+    <clr-control-error >Username required</clr-control-error>
+  </clr-input-container>
+
+  <clr-password-container>
+    <label>Password</label>
+    <input clrPassword formControlName="password" type="password" required/>
+    <clr-control-error *clrIfError="'required'">Password Required</clr-control-error>
+  </clr-password-container>
+  <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+  <button class="btn">Register</button>
+</form>

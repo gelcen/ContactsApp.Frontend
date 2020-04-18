@@ -1,0 +1,23 @@
+<div class="main-container">
+  <header class="header">
+    <div class="branding">
+      <a class="title">
+        Contacts App
+      </a>
+    </div>
+  </header>
+  <div class="content-container">
+    <clr-vertical-nav>
+      <a clrVerticalNavLink routerLink="./allcontacts" routerLinkActive="active" *ngIf="isAdmin">All Contacts</a>
+      <a clrVerticalNavLink routerLink="./mycontacts" routerLinkActive="active" *ngIf="isLogedIn">My Contacts</a>
+      <a clrVerticalNavLink routerLink="./deletedcontacts" routerLinkActive="active" *ngIf="isAdmin">Deleted Contacts</a>
+      <a clrVerticalNavLink routerLink="./addcontact" routerLinkActive="active" *ngIf="isLogedIn">New Contact</a>
+      <div class="nav-divider"></div>
+      <a clrVerticalNavLink routerLink="./login" (click)="logout()">Logout</a>
+      <a clrVerticalNavLink routerLink="./register" routerLinkActive="active">Register</a>
+    </clr-vertical-nav>
+    <div class="content-area">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

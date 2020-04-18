@@ -1,0 +1,46 @@
+<div *ngIf="contact">
+    <h2>Contact Details</h2>
+    <div><span>id: </span>{{contact.id}}</div>
+
+    <form class="clr-form" clrForm [formGroup]="form">
+        <clr-input-container>
+            <label>Surname: </label>
+            <input clrInput type="text" formControlName ="surname" required />
+            <clr-control-error>Type in surname please</clr-control-error>
+        </clr-input-container>
+        <clr-input-container>
+            <label>Name: </label>
+            <input clrInput type="text" formControlName ="name" required />
+            <clr-control-error>Type in name please</clr-control-error>
+        </clr-input-container>
+        <clr-input-container>
+            <label>Patronymic: </label>
+            <input clrInput type="text" formControlName ="patronymic" required />
+            <clr-control-error>Type in patronymic please</clr-control-error>
+        </clr-input-container>
+        <clr-input-container>
+            <label>Organization: </label>
+            <input clrInput type="text" formControlName="organization" required />
+            <clr-control-error>Type in organization please</clr-control-error>
+        </clr-input-container>
+        <clr-input-container>
+            <label>Position: </label>
+            <input clrInput type="text" formControlName="position" required />
+            <clr-control-error>Type in position please</clr-control-error>
+        </clr-input-container>
+        <clr-input-container>
+            <label>Email: </label>
+            <input clrInput type="email" formControlName="email" required />
+            <clr-control-error *clrIfError="'email'">Please enter valid email</clr-control-error>
+            <clr-control-error *clrIfError="'required'">Type in email please</clr-control-error>
+        </clr-input-container>
+        <clr-input-container>
+            <label>Phone: </label>
+            <input clrInput type="text" formControlName="phone" required />
+            <clr-control-error>Type in phone please</clr-control-error>
+        </clr-input-container>
+    </form>
+
+    <button (click)="save()">save</button>
+    <button (click)="goBack()">go back</button>
+</div>
